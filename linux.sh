@@ -20,7 +20,8 @@ function package_manager_update() {
 		
 		export DEBIAN_FRONTEND=noninteractive
 		export DEBIAN_PRIORITY=critical
-	
+
+		run dpkg --configure -a --force-all	
 		run apt-get update -y
 		run apt-get full-upgrade -y -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold"
 		run apt-get autoremove -y
